@@ -31,6 +31,13 @@ public class StackCar {
         return car;
     }
     
+    public CarInformation peek(){
+        if(top ==  null){
+            throw new IllegalStateException("stack is empty!");
+        }
+        return top.car;
+    }
+    
     public boolean isEmpty(){
         return size == 0;
     }
