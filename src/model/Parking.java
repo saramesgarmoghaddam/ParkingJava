@@ -61,4 +61,25 @@ public class Parking {
             throw new IllegalStateException("Car is not at the top of stack " + stackNumber + ". Cannot remove!");
         }
     }
+    
+    public void moveCar(int i , int j){
+        if(i < 0 || j > 0 || i >= n || j >= n){
+            throw new IllegalStateException("Invalid stack numbers!");
+        }
+        while(!stacks[i].isEmpty()){
+            CarInformation car = stacks[i].pop();
+            boolean parked = false;
+            for(int k = j ; k < n ; k++){
+                if(!stacks[k].isFull()){
+                    stacks[k].push(car);
+                    parked = true;
+                    break;
+                }
+            }
+            if(!parked){
+                throw new IllegalStateException("No space available for car" + car.getPlateNumber());
+            }
+        }
+        throw new IllegalStateException("Stack " + i + "is now empty!");
+    }
 }
