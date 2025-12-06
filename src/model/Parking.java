@@ -54,7 +54,7 @@ public class Parking {
         if(stack.isEmpty()){
             throw new IllegalStateException("Stack " + stackNumber + " is empty!");
         }
-        if(stack.peek().getPlateNumber().equals(plateNumber)){
+        if(stack.top().getPlateNumber().equals(plateNumber)){
             return stack.pop();
         }
         else{
@@ -81,5 +81,75 @@ public class Parking {
             }
         }
         throw new IllegalStateException("Stack " + i + "is now empty!");
+    }
+    
+    public String find(String plateNumber){
+       for(int i = 0 ; i < n ; i++){
+           StackCar stack = stacks[i];
+           Node current = stack.getTop();
+           int position = 0;
+           while(current != null){
+               if(current.car.getPlateNumber().equals(plateNumber)){
+                   return "Car found in stack " + i + " at position " + position;
+               }
+               current = current.next;
+               position++;
+           }
+       }
+       return "Car with plate " + plateNumber + " not found in any stack!";
+    }
+    
+    public void sortStack(int stackNumber){
+        if(stackNumber < 0 || stackNumber >= n){
+            throw new IllegalStateException("Invalid stack number!");
+        }
+        StackCar stack = stacks[stackNumber];
+        if(stack.isEmpty()){
+            throw new IllegalStateException("Stack " + stackNumber + " is empty!");
+        }
+        Node sortedHead = mergeSort(stack.getTop());
+        stack.setTop(sortedHead);
+    }
+    
+    public Node mergeSort(Node head){
+        if(head == null ||  head.next == null){
+            return head;
+        }
+        Node mid = split(head);
+        Node left = mergeSort(head);
+        Node right = mergeSort(mid);
+        return merge(left , right);
+    }
+    
+    public Node split(Node head){
+        Node slow = head;
+        Node fast = head;
+        Node prev = null;
+        while(fast != null && fast.next != null){
+            prev = slow;
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        if(prev != null){
+            prev.next = null;
+        }
+        return slow;
+    }
+    
+    public Node merge(Node left , Node right){
+        if(left == null){
+            return right;
+        }
+        if(right == null){
+            return left;
+        }
+        if(left.car.getPlateNumber().compareTo(right.car.getPlateNumber()) <= 0){
+            left.next = merge(left.next , right);
+            return left;
+        }
+        else{
+            right.next = merge(left , right.next);
+            return right;
+        }
     }
 }
