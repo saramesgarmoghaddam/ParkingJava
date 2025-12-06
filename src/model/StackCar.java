@@ -41,6 +41,10 @@ public class StackCar {
     public Node getTop(){
         return top;
     }
+
+    public void setTop(Node newTop) {
+        this.top = newTop;
+    }
     
     public boolean isEmpty(){
         return size == 0;
