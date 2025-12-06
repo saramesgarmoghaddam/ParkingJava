@@ -31,11 +31,15 @@ public class StackCar {
         return car;
     }
     
-    public CarInformation peek(){
+    public CarInformation top(){
         if(top ==  null){
             throw new IllegalStateException("stack is empty!");
         }
         return top.car;
+    }
+    
+    public Node getTop(){
+        return top;
     }
     
     public boolean isEmpty(){
