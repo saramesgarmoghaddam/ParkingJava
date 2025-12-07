@@ -25,14 +25,14 @@ public class Main {
             System.out.println("8. Exit");
             System.out.println("Choose option (Enter the number of option): ");
             int choice = scanner.nextInt();
-            scanner.nextInt();
+            scanner.nextLine();
             switch (choice) {
                 case 1:
                     String plate = scanner.nextLine();
                     LocalDateTime now = LocalDateTime.now();
                     CarInformation car = new CarInformation(plate, now);
                     queue.enqueue(car);
-                    System.out.println("Car added to queue at " + now);
+                    System.out.println("Car " + car.getPlateNumber() + " added to queue at " + now);
                     break;
                 case 2:
                     parking.parkFirstAvailableStack(queue);
