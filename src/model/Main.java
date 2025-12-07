@@ -45,6 +45,7 @@ public class Main {
                 case 4:
                     System.out.println("Enter your stack number: ");
                     int stackNumber2 = scanner.nextInt();
+                    scanner.nextLine();
                     System.out.println("Enter car plate number: ");
                     String plateNumber = scanner.nextLine();
                     try {
