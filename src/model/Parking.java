@@ -17,7 +17,9 @@ public class Parking {
     public void parkFirstAvailableStack(QueueCar queue){
         CarInformation car = queue.dequeue();
         if(car == null){
-            throw new IllegalStateException("No car in queue!");
+            //throw new IllegalStateException("No car in queue!");
+            System.out.println("No car in queue!");
+            return;
         }
         for(int i = 0 ; i < n ; i++){
             if(!stacks[i].isFull()){
@@ -31,14 +33,20 @@ public class Parking {
     
     public void parkInSpecifiedStack(QueueCar queue , int stackNumber){
         if(stackNumber < 0 || stackNumber >= n){
-            throw new IllegalStateException("Invalid stack number!");
+            //throw new IllegalStateException("Invalid stack number!");
+            System.out.println("Invalid stack number!");
+            return;
         }
         CarInformation car = queue.dequeue();
         if(car == null){
-            throw new IllegalStateException("No car in queue!");
+            //throw new IllegalStateException("No car in queue!");
+            System.out.println("No car in queue!");
+            return;
         }
         if(stacks[stackNumber].isFull()){
-            throw new IllegalStateException("Stack " + stackNumber + " is full!");
+            //throw new IllegalStateException("Stack " + stackNumber + " is full!");
+            System.out.println("Stack " + stackNumber + " is full!");
+            return;
         }
         else{
             stacks[stackNumber].push(car);
@@ -48,23 +56,31 @@ public class Parking {
     
     public CarInformation removeCar(int stackNumber , String plateNumber){
         if(stackNumber < 0 || stackNumber >= n){
-            throw new IllegalStateException("Invalid stack number!");
+            //throw new IllegalStateException("Invalid stack number!");
+            System.out.println("Invalid stack number!");
+            return null;
         }
         StackCar stack = stacks[stackNumber];
         if(stack.isEmpty()){
-            throw new IllegalStateException("Stack " + stackNumber + " is empty!");
+            //throw new IllegalStateException("Stack " + stackNumber + " is empty!");
+            System.out.println("Stack " + stackNumber + " is empty!");
+            return null; 
         }
         if(stack.top().getPlateNumber().equals(plateNumber)){
             return stack.pop();
         }
         else{
-            throw new IllegalStateException("Car is not at the top of stack " + stackNumber + ". Cannot remove!");
+            //throw new IllegalStateException("Car is not at the top of stack " + stackNumber + ". Cannot remove!");
+            System.out.println("Car is not at the top of stack " + stackNumber + ". Cannot remove!");
+            return null;
         }
     }
     
     public void moveCar(int i , int j){
         if(i < 0 || j > 0 || i >= n || j >= n){
-            throw new IllegalStateException("Invalid stack numbers!");
+            //throw new IllegalStateException("Invalid stack numbers!");
+            System.out.println("Invalid stack numbers!");
+            return;
         }
         while(!stacks[i].isEmpty()){
             CarInformation car = stacks[i].pop();
@@ -77,10 +93,13 @@ public class Parking {
                 }
             }
             if(!parked){
-                throw new IllegalStateException("No space available for car" + car.getPlateNumber());
+                //throw new IllegalStateException("No space available for car" + car.getPlateNumber());
+                System.out.println("No space available for car" + car.getPlateNumber());
+                return;
             }
         }
-        throw new IllegalStateException("Stack " + i + "is now empty!");
+        //throw new IllegalStateException("Stack " + i + "is now empty!");
+        System.out.println("Stack " + i + "is now empty!");
     }
     
     public String find(String plateNumber){
@@ -101,11 +120,15 @@ public class Parking {
     
     public void sortStack(int stackNumber){
         if(stackNumber < 0 || stackNumber >= n){
-            throw new IllegalStateException("Invalid stack number!");
+            //throw new IllegalStateException("Invalid stack number!");
+            System.out.println("Invalid stack number!");
+            return;
         }
         StackCar stack = stacks[stackNumber];
         if(stack.isEmpty()){
-            throw new IllegalStateException("Stack " + stackNumber + " is empty!");
+            //throw new IllegalStateException("Stack " + stackNumber + " is empty!");
+            System.out.println("Stack " + stackNumber + " is empty!");
+            return;
         }
         Node sortedHead = mergeSort(stack.getTop());
         stack.setTop(sortedHead);
