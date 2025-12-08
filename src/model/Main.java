@@ -28,6 +28,7 @@ public class Main {
             scanner.nextLine();
             switch (choice) {
                 case 1:
+                    System.out.println("Enter car plate number: ");
                     String plate = scanner.nextLine();
                     LocalDateTime now = LocalDateTime.now();
                     CarInformation car = new CarInformation(plate, now);
