@@ -25,7 +25,8 @@ public class QueueCar {
     
     public CarInformation dequeue(){
         if(head == null){
-            throw new IllegalStateException("Queue is empty!");
+            //throw new IllegalStateException("Queue is empty!");
+            System.out.println("Queue is empty!");
         }
         CarInformation car = head.car;
         head = head.next;
@@ -38,7 +39,8 @@ public class QueueCar {
     
     public CarInformation first(){
         if(head == null){
-            throw new IllegalStateException("Queue is empty!");
+            //throw new IllegalStateException("Queue is empty!");
+            System.out.println("Queue is empty!");
         }
         return head.car;
     }
