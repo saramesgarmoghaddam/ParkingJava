@@ -13,7 +13,9 @@ public class StackCar {
     
     public void push(CarInformation car){
         if(size == capacity){
-            throw new IllegalStateException("Stack is full!");
+            //throw new IllegalStateException("Stack is full!");
+            System.out.println("Stack is full!");
+            return;
         }
         Node newNode = new Node(car);
         newNode.next = top;
@@ -23,7 +25,9 @@ public class StackCar {
     
     public  CarInformation pop(){
         if(top == null){
-            throw new IllegalStateException("stack is empty!");
+            //throw new IllegalStateException("stack is empty!");
+            System.out.println("stack is empty!");
+            return null;
         }
         CarInformation car = top.car;
         top = top.next;
@@ -33,7 +37,9 @@ public class StackCar {
     
     public CarInformation top(){
         if(top ==  null){
-            throw new IllegalStateException("stack is empty!");
+            //throw new IllegalStateException("stack is empty!");
+            System.out.println("stack is empty!");
+            return null;
         }
         return top.car;
     }
