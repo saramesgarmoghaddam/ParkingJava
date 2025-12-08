@@ -118,20 +118,21 @@ public class Parking {
        return "Car with plate " + plateNumber + " not found in any stack!";
     }
     
-    public void sortStack(int stackNumber){
+    public boolean sortStack(int stackNumber){
         if(stackNumber < 0 || stackNumber >= n){
             //throw new IllegalStateException("Invalid stack number!");
             System.out.println("Invalid stack number!");
-            return;
+            return false;
         }
         StackCar stack = stacks[stackNumber];
         if(stack.isEmpty()){
             //throw new IllegalStateException("Stack " + stackNumber + " is empty!");
             System.out.println("Stack " + stackNumber + " is empty!");
-            return;
+            return false;
         }
         Node sortedHead = mergeSort(stack.getTop());
         stack.setTop(sortedHead);
+        return true;
     }
     
     public Node mergeSort(Node head){

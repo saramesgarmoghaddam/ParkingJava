@@ -59,8 +59,10 @@ public class Main {
                 case 5:
                     System.out.println("Enter stack number to sort: ");
                     int sortNumber = scanner.nextInt();
-                    parking.sortStack(sortNumber);
-                    System.out.println("Stack " + sortNumber + " sorted.");
+                    if(parking.sortStack(sortNumber)) {
+                        System.out.println("Stack " + sortNumber + " sorted.");
+                    }
+                    break;
                 case 6:
                     System.out.println("Enter source stack: ");
                     int i = scanner.nextInt();
