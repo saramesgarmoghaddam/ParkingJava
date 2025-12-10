@@ -139,13 +139,6 @@ public class Parking {
         if(head == null ||  head.next == null){
             return head;
         }
-        Node mid = split(head);
-        Node left = mergeSort(head);
-        Node right = mergeSort(mid);
-        return merge(left , right);
-    }
-    
-    public Node split(Node head){
         Node slow = head;
         Node fast = head;
         Node prev = null;
@@ -157,7 +150,10 @@ public class Parking {
         if(prev != null){
             prev.next = null;
         }
-        return slow;
+        Node mid = slow;
+        Node left = mergeSort(head);
+        Node right = mergeSort(mid);
+        return merge(left , right);
     }
     
     public Node merge(Node left , Node right){
