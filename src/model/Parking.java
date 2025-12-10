@@ -5,6 +5,7 @@ public class Parking {
     private int n;
     private int m;
     
+    //پیچیدگی زمانی : O(n)
     public Parking(int n , int m){
         this.n = n;
         this.m = m;
@@ -13,7 +14,7 @@ public class Parking {
             stacks[i] = new StackCar(m);
         }
     }
-    
+    //پیچیدگی زمانی : O(n)
     public void parkFirstAvailableStack(QueueCar queue){
         CarInformation car = queue.dequeue();
         if(car == null){
@@ -30,7 +31,7 @@ public class Parking {
         }
         System.out.println("Parking is full!");
     }
-    
+    //پیپیدگی زمانی: O(n)
     public void parkInSpecifiedStack(QueueCar queue , int stackNumber){
         if(stackNumber < 0 || stackNumber >= n){
             //throw new IllegalStateException("Invalid stack number!");
@@ -53,7 +54,7 @@ public class Parking {
             System.out.println("Car parked in stack" + stackNumber);
         }
     }
-    
+    //پیچیدگی زمانی: O(n)
     public CarInformation removeCar(int stackNumber , String plateNumber){
         if(stackNumber < 0 || stackNumber >= n){
             //throw new IllegalStateException("Invalid stack number!");
@@ -75,7 +76,7 @@ public class Parking {
             return null;
         }
     }
-    
+    //پیچیدگی زمانی: O(m*n)
     public void moveCar(int i , int j){
         if(i < 0 || j > 0 || i >= n || j >= n){
             //throw new IllegalStateException("Invalid stack numbers!");
@@ -101,7 +102,7 @@ public class Parking {
         //throw new IllegalStateException("Stack " + i + "is now empty!");
         System.out.println("Stack " + i + "is now empty!");
     }
-    
+    //پیچیدگی زمانی: O(n*m)
     public String find(String plateNumber){
        for(int i = 0 ; i < n ; i++){
            StackCar stack = stacks[i];
@@ -117,7 +118,7 @@ public class Parking {
        }
        return "Car with plate " + plateNumber + " not found in any stack!";
     }
-    
+    //پیچیدگی زمانی: O(mlogm)
     public boolean sortStack(int stackNumber){
         if(stackNumber < 0 || stackNumber >= n){
             //throw new IllegalStateException("Invalid stack number!");
@@ -134,7 +135,7 @@ public class Parking {
         stack.setTop(sortedHead);
         return true;
     }
-    
+    //پیچیدگی زمانی: O(mlogm)
     public Node mergeSort(Node head){
         if(head == null ||  head.next == null){
             return head;
@@ -155,7 +156,7 @@ public class Parking {
         Node right = mergeSort(mid);
         return merge(left , right);
     }
-    
+    //پیچیدگی زمانی: O(m)
     public Node merge(Node left , Node right){
         if(left == null){
             return right;

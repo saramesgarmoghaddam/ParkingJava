@@ -4,13 +4,13 @@ public class QueueCar {
     private Node head;
     private Node tail;
     private int size;
-    
+    //پیچیدگی زمانی: O(1)
     public QueueCar(){
         this.head = null;
         this.tail = null;
         this.size = 0;
     }
-    
+    //پیچیدگی زمانی: O(1)
     public void enqueue(CarInformation car){
         Node newNode = new Node(car);
         if(head == null){
@@ -22,7 +22,7 @@ public class QueueCar {
         }
         size++;
     }
-    
+    //پیچیدگی زمانی: O(1)
     public CarInformation dequeue(){
         if(head == null){
             //throw new IllegalStateException("Queue is empty!");
@@ -36,7 +36,7 @@ public class QueueCar {
         size--;
         return car;
     }
-    
+    //پیچیدگی زمانی:O(1)
     public CarInformation first(){
         if(head == null){
             //throw new IllegalStateException("Queue is empty!");
@@ -44,11 +44,11 @@ public class QueueCar {
         }
         return head.car;
     }
-    
+    //پیچیدگی زمانی: O(1)
     public  boolean isEmpty(){
         return size == 0;
     }
-    
+    //پیچیدگی زمانی: O(1)
     public int getSize(){
         return size;
     }
