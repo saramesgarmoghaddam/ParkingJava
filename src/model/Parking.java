@@ -78,7 +78,7 @@ public class Parking {
     }
     //پیچیدگی زمانی: O(m*n)
     public void moveCar(int i , int j){
-        if(i < 0 || j < 0 || i >= n || j >= n){
+        if(i < 0 || i >= n || j < 0 || j >= n){
             //throw new IllegalStateException("Invalid stack numbers!");
             System.out.println("Invalid stack numbers!");
             return;
@@ -100,7 +100,7 @@ public class Parking {
             }
         }
         //throw new IllegalStateException("Stack " + i + "is now empty!");
-        System.out.println("Stack " + i + "is now empty!");
+        System.out.println("Stack " + i + " is now empty!");
     }
     //پیچیدگی زمانی: O(n*m)
     public String find(String plateNumber){
