@@ -28,8 +28,14 @@ public class Main {
             scanner.nextLine();
             switch (choice) {
                 case 1:
-                    System.out.println("Enter car plate number: ");
-                    String plate = scanner.nextLine();
+                    String plate;
+                    do{
+                        System.out.println("Enter car plate number: ");
+                        plate = scanner.nextLine().trim();
+                        if(!(plate != null && plate.matches("^[0-9]{2}[A-Z][0-9]{3}$"))){
+                            System.out.println("The plate number is invalid!(for example:23G123) , Try again!");
+                        }
+                    }while(!(plate != null && plate.matches("^[0-9]{2}[A-Z][0-9]{3}$")));
                     LocalDateTime now = LocalDateTime.now();
                     CarInformation car = new CarInformation(plate, now);
                     queue.enqueue(car);
