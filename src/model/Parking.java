@@ -173,4 +173,36 @@ public class Parking {
             return right;
         }
     }
+    
+    public void showParkingStatus(){
+        for(int i = 0 ; i < n ; i++){
+            System.out.print("Stack " + i + ": ");
+            if(stacks[i].isEmpty()){
+                System.out.println("Empty");
+            }
+            else{
+                    Node current = stacks[i].getTop();
+                    while(current != null){
+                        System.out.print("| " +current.car.getPlateNumber() + " ");
+                        current = current.next;
+                    }
+                    System.out.println();
+            }
+        } 
+    }
+
+    public void showSpecialStack(int i){
+        if(stacks[i].isEmpty()){
+            System.out.println("Empty");
+        }
+        else{
+            Node current = stacks[i].getTop();
+            while(current != null){
+                System.out.print("| " +current.car.getPlateNumber() + " ");
+                current = current.next;
+            }
+            System.out.println();
+        }
+    }
+    
 }

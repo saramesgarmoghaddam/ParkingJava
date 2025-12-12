@@ -22,7 +22,9 @@ public class Main {
             System.out.println("5. Sort a stack");
             System.out.println("6. Move cars between stacks");
             System.out.println("7. Find car");
-            System.out.println("8. Exit");
+            System.out.println("8. Show parking status");
+            System.out.println("9: Shaw queue status");
+            System.out.println("10. Exit");
             System.out.println("Choose option (Enter the number of option): ");
             int choice = scanner.nextInt();
             scanner.nextLine();
@@ -67,6 +69,8 @@ public class Main {
                     int sortNumber = scanner.nextInt();
                     if(parking.sortStack(sortNumber)) {
                         System.out.println("Stack " + sortNumber + " sorted.");
+                        System.out.println("Status of stack " + sortNumber + ":");
+                        parking.showSpecialStack(sortNumber);
                     }
                     break;
                 case 6:
@@ -77,12 +81,20 @@ public class Main {
                     parking.moveCar(i, j);
                     break;
                 case 7:
-                    System.out.println("Enter plate number to search: ");
+                    System.out.println("Enter plate number to8 search: ");
                     String searchPlate = scanner.nextLine();
                     String result = parking.find(searchPlate);
                     System.out.println(result);
                     break;
                 case 8:
+                    System.out.println("*Parking status*");
+                    parking.showParkingStatus();
+                    break;
+                case 9:
+                    System.out.println("*Queue status*");
+                    queue.showQueueStatus();
+                    break;
+                case 10:
                     running = false;
                     System.out.print("Exiting program...");
                     break;

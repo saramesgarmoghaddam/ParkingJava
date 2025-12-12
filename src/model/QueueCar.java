@@ -52,4 +52,17 @@ public class QueueCar {
     public int getSize(){
         return size;
     }
+    
+    public void showQueueStatus(){
+        if(isEmpty()){
+            System.out.println("Queue is empty!");
+            return;
+        }
+        Node current = head;
+        while(current != null){
+            System.out.print("| " + current.car.getPlateNumber() + " ");
+            current = current.next;
+        }
+        System.out.println();
+    }
 }
