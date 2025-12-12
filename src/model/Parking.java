@@ -31,7 +31,7 @@ public class Parking {
         }
         System.out.println("Parking is full!");
     }
-    //پیپیدگی زمانی: O(n)
+    //پیپیدگی زمانی: O(n) X is O(1)
     public void parkInSpecifiedStack(QueueCar queue , int stackNumber){
         if(stackNumber < 0 || stackNumber >= n){
             //throw new IllegalStateException("Invalid stack number!");
@@ -54,7 +54,7 @@ public class Parking {
             System.out.println("Car parked in stack" + stackNumber);
         }
     }
-    //پیچیدگی زمانی: O(n)
+    //پیچیدگی زمانی:O(n) X is O(1)
     public CarInformation removeCar(int stackNumber , String plateNumber){
         if(stackNumber < 0 || stackNumber >= n){
             //throw new IllegalStateException("Invalid stack number!");
